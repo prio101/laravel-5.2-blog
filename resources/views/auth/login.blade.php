@@ -7,11 +7,11 @@
                 <div class="panel panel-default ">
                     <div class="panel-heading">Login Page</div>
                     <div class="panel-body">
-                        <form action="/admin" method="post">
+                        <form action="/auth/login" method="post">
                             <input name="_token" type="hidden" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                <input class="form-control" type="text" name="username">
+                                <label for="username">Email</label>
+                                <input class="form-control" type="email" name="email">
 
                             </div>
                             <div class="form-group">
@@ -22,6 +22,8 @@
                                 <input class="btn btn-primary btn-block" type="submit" value="Login">
                             </div>
                         </form>
+
+                        <div><a href="/auth/register" id="register" class="btn btn-primary">Register</a></div>
                     </div>
                 </div>
             </div>
