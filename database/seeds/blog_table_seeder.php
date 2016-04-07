@@ -11,6 +11,7 @@ class blog_table_seeder extends Seeder
      */
     public function run()
     {
+        Blog::truncate(40);
         //Factory
         factory(Blog::class , 40)->create();
     }
