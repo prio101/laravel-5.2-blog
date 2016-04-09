@@ -18,11 +18,10 @@ Route::get('/post/{id}' , 'SiteController@show');
 
 
 
-Route::get('/admin' ,['middleware' => 'auth' , function(){
-   return view('admin.index') ;
-}]);
+Route::get('/admin' ,['middleware' => 'auth' , 'uses' => 'AdminController@index']);
 
+Route::get('/admin/edit/post/{id}' , ['middleware' =>'auth' , 'uses' => 'AdminController@edit']);
 
-
+Route::DELETE('/admin/post/delete/{id}' , ['middleware' => 'auth' , 'uses' => 'AdminController@destroy']);
 
 Route::auth();

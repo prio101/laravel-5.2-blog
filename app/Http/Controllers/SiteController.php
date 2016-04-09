@@ -29,11 +29,13 @@ class SiteController extends Controller
         
         $Blog = Blog::class;
         
-        $posts = $Blog::first();
+        $posts = $Blog::find($id);
 
 
         return view('post' , ['posts'=>$posts]);
 
 
     }
+
+
 }    
