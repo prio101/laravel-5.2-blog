@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Comments;
 use App\User;
 use App\Model\Blog;
 use Faker\Generator;
@@ -36,3 +37,10 @@ $factory->define(Blog::class , function (Generator $faker) {
         ];
 
 });
+
+$factory->define(Comments::class, function( Generator $faker) {
+    return [
+       'name' => $faker->name,
+        'comment'=> $faker->realText(20)
+    ] ;
+}) ;

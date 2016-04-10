@@ -30,8 +30,12 @@ class AdminController extends Controller
     /*
      *  Store post data into page
      * */
-    public function store(){
+    public function store(Requests\PostRequest $request){
 
+
+        Blog::create($request->all());
+
+        return Redirect::to('admin');
     }
 
 
@@ -40,17 +44,22 @@ class AdminController extends Controller
 
     public function edit($id) {
         $Blog = Blog::class;
-        $post = $Blog::findOrFail($id);
+        $blog = $Blog::findOrFail($id);
 
-        return $post ;
+        return view('admin.edit', ['blog'=>$blog]) ;
     }
 
     /*
      * Update data
      * */
 
-    public function update() {
+    public function update(Requests\PostRequest $request, $id) {
 
+        $post = Blog::find($id);
+        $post->title = $request->input('title');
+        $post->post = $request->input('post');
+        $post->save();
+        return Redirect::to('admin');
     }
 
     /*

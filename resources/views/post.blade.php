@@ -8,8 +8,7 @@
         {{$posts->post}}
     </p>
 
-    <small>Written By:</small>
-    <a href="user/{{$posts->user_id}}">Writer</a>
+    <p>Written by : {{$posts->user->name}}</p>
 
     @if(Auth::user())
         <div class="col-md-12">
